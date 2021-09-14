@@ -1,0 +1,16 @@
+- name: OCI GoldenGate
+  hosts: localhost
+  collections:
+    - oracle.oci
+  vars:
+    #ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Update deployment
+      oci_golden_gate_deployment:
+        display_name: MyGGDeployment
+        license_model: BRING_YOUR_OWN_LICENSE
+        compartment_id: "ocid1.compartment.oc1..aaaaaaaaq2j....q"
+        subnet_id: "ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaak6d...."
+        is_public: true
+        cpu_core_count: 1
+        is_auto_scaling_enabled: true
