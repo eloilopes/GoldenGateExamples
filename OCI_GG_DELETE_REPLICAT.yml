@@ -1,0 +1,18 @@
+- hosts: localhost
+  vars:
+      destination_host: <host>.deployment.goldengate.eu-frankfurt-1.oci.oraclecloud.com/services/v2/replicats
+      #replicat name
+      replicat: REP1
+  tasks:
+      - name: DELETE replicat
+        uri:
+            url: https://{{ destination_host }}/{{ replicat }}
+            url_username: oggadmin
+            url_password: <password>
+            method: DELETE
+        ignore_errors: yes
+        register: rest_delete
+      - name: DEBUG / GOT INFO
+        debug:
+            msg: "{{ rest_delete.json }}"
+        when: rest_delete.status ==  200
