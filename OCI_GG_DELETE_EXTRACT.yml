@@ -1,0 +1,18 @@
+- hosts: localhost
+  vars:
+      destination_host: <host>.deployment.goldengate.eu-frankfurt-1.oci.oraclecloud.com/services/v2/extracts
+      #extract name
+      extract: EXT1
+  tasks:
+      - name: CREATE EXTRACT
+        uri:
+            url: https://{{ destination_host }}/{{ extract }}
+            url_username: oggadmin
+            url_password: <password>
+            method: DELETE
+        ignore_errors: yes
+        register: rest_post
+      - name: DEBUG / GOT INFO
+        debug:
+            msg: "{{ rest_post.json }}"
+        when: rest_post.status ==  200
