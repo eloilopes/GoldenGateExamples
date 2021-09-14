@@ -1,0 +1,26 @@
+- hosts: localhost
+  vars:
+      destination_host: <host>.deployment.goldengate.eu-frankfurt-1.oci.oraclecloud.com/services/v2/replicats
+      #replicat name
+      replicat: REP1
+  tasks:
+      - name: CREATE replicat
+        uri:
+            url: https://{{ destination_host }}/{{ replicat }}
+            url_username: oggadmin
+            url_password: <password>
+            method: POST
+            body_format: json
+            #Replicat configuration 
+            body:
+                config: ["Replicat {{ replicat }}","UseridAlias <alias> DOMAIN <domain>","Map <user>.<table>,","Target <user>.<table>;"]
+                source: {"name":"a1"}
+                credentials: {"alias":"<alias>","domain":"<domain>"}
+                checkpoint: {"table":"<username>.<CHECKPOINTABLE>"}
+                mode: {"type": "nonintegrated"}
+        ignore_errors: yes
+        register: rest_post
+      - name: DEBUG / GOT INFO
+        debug:
+            msg: "{{ rest_post.json }}"
+        when: rest_post.status ==  201
