@@ -1,26 +1,31 @@
 - hosts: localhost
   vars:
+      #your OCI GG instance
       destination_host: <GG instance>/services/v2/extracts
       #Extract name
       extract: EXT1
   tasks:
       - name: CREATE EXTRACT
         uri:
+            #calling the rest API to create the extract
             url: https://{{ destination_host }}/{{ extract }}
             url_username: oggadmin
             url_password: <Password>
             method: POST
             body_format: json
             body:
-                # Parameters of Extract
+                # Configuration of Extract
                 config: ["Extract <Extract name>","ExtTrail <trail file>","UseridAlias <your alias> DOMAIN <Your domain>","Table <schema>.<table>;"]
                 source: {"tranlogs":"integrated"}
                 credentials: {"alias":"<your alias>","domain":"<Your domain>"}
                 begin: "now"
                 targets: [{"name":"<trail file>"}]
+        # The API even when finishes successfully, there is a warning, that's why we put to ignore errors.
+        #If there is a real error you will see it in the log after running the script
         ignore_errors: yes
         register: rest_post
       - name: DEBUG / GOT INFO
         debug:
             msg: "{{ rest_post.json }}"
+        #shows output when runs without any error (201 status)
         when: rest_post.status ==  201
