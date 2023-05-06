@@ -1,24 +1,10 @@
-# GoldenGate Examples using Ansible
+# GoldenGate Response File Examples
 
 
-These scripts let you create and update your OCI GoldenGate Instance:
+You can find here 2 response file, the oggcore.rsp that installs GoldenGate software and ResponseFile_Deployment.rsp that creates GoldenGate deployment, please copy the file and adapt for your own installation.
 
-* OCI_GG_Create_Deployment.yml
-* OCI_GG_REGISTER_DATABASE.yml
-* OCI_GG_UPDATE_DEPLOYMENT.yml
+References
+https://docs.oracle.com/en/middleware/goldengate/core/21.3/coredoc/install-oracle-goldengate.html#GUID-C89041F6-7B73-4B42-92B8-D834919494AB
 
-Check this [link](https://oci-ansible-collection.readthedocs.io/en/latest/collections/oracle/oci/oci_golden_gate_deployment_module.html#ansible-collections-oracle-oci-oci-golden-gate-deployment-module) to get more information about the different Ansible modules to OCI GoldenGate.
+https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=2485094.1%3AOGGMS_SILENT_INSTAL&action=inline
 
----
-
-### GoldenGate REST APIs
-
-We can take advantage of GoldenGate REST APIs and use them in Ansible. You can create extracts, replicats, parameter file and so on with REST APIs. Here you have a couple of examples:
-
-* OCI_GG_CREATE_EXTRACT.yml
-* OCI_GG_CREATE_REPLICAT.yml 
-* OCI_GG_DELETE_EXTRACT.yml
-* OCI_GG_DELETE_REPLICAT.yml
-* OCI_GG_RESET_DEVELOPMENT.yml
-
-Check all GoldenGate REST APIs on [documentation](https://docs.oracle.com/en/middleware/goldengate/core/21.3/oggra/rest-endpoints.html).
