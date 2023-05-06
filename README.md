@@ -1,7 +1,7 @@
 # GoldenGate Response File Examples
 
 
-You can find here 2 response file, the oggcore.rsp that installs GoldenGate software and ResponseFile_Deployment.rsp that creates GoldenGate deployment, please copy the file and adapt for your own installation.
+You can find here 2 response file, the oggcore.rsp installs GoldenGate software and ResponseFile_Deployment.rsp that creates GoldenGate deployment, please copy the file and adapt for your own installation.
 
 References:
 
