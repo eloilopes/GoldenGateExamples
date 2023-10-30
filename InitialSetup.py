@@ -64,7 +64,7 @@ bodyReplicatIntegratedParallel = {
             },
             'credentials': {"alias":"SQLServerConnection","domain":"OracleGoldenGate"},
             'checkpoint':{
-                'table': 'dbo.checkpoint_table'#jsonResponseRetrieveReplicat['checkpoint']
+                'table': 'dbo.checkpoint_table'
              },
             'mode': {
                 'type': 'integrated', 
