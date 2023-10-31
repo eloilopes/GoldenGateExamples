@@ -1,3 +1,11 @@
+#DISCLAIMER: Use of this code is at your own risk. The author of this code and any contributors to this repository make no warranties,
+#express or implied, regarding the accuracy, reliability, or suitability of this code for any purpose. 
+#This code is provided "as is" and without any warranty. 
+#The author and contributors are not responsible for any direct or indirect damages or losses resulting from the use of this code. 
+#It is your responsibility to ensure that the code is used in compliance with any applicable licenses, regulations, or laws.
+#By using this code, you acknowledge and accept these terms and conditions. If you do not agree with these terms, 
+#do not use the code or any part of it.
+
 import requests
 import json
 from base64 import b64encode
